@@ -118,5 +118,37 @@ server.listen(PORT, () => {
   console.log(`🌐 HTTP server running on port ${PORT}`);
 });
 
-// Login to Discord
-client.login(process.env.DISCORD_TOKEN);
+// Auto-deploy commands when bot starts
+const { REST, Routes } = require('discord.js');
+
+async function deployCommands() {
+  try {
+    const commands = [];
+    const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+    
+    for (const file of commandFiles) {
+      const filePath = path.join(commandsPath, file);
+      const command = require(filePath);
+      
+      if ('data' in command) {
+        commands.push(command.data.toJSON());
+      }
+    }
+    
+    const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
+    
+    console.log('🔄 Deploying commands to Discord...');
+    await rest.put(
+      Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
+      { body: commands }
+    );
+    console.log(`✅ Successfully deployed ${commands.length} commands!`);
+  } catch (error) {
+    console.error('❌ Error deploying commands:', error);
+  }
+}
+
+// Login to Discord and deploy commands
+client.login(process.env.DISCORD_TOKEN).then(() => {
+  deployCommands();
+});
