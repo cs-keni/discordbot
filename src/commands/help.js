@@ -27,6 +27,7 @@ module.exports = {
           value: [
             '`/ping` - Check bot latency',
             '`/serverinfo` - Get server information',
+            '`/cloud` - Show deployment information',
             '`/help` - Show this help message'
           ].join('\n'),
           inline: false 
