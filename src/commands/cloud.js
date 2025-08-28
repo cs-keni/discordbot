@@ -26,7 +26,7 @@ module.exports = {
     
     // Get environment info
     const nodeVersion = process.version;
-    const discordJsVersion = require('discord.js/package.json').version;
+    const discordJsVersion = 'v14.14.1'; // Hardcoded version to avoid package.json access issues
     
     const embed = new EmbedBuilder()
       .setColor(isRender ? '#00D4AA' : '#7289DA')
