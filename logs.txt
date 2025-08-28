@@ -1,0 +1,75 @@
+==> Cloning from https://github.com/cs-keni/discordbot
+==> Checking out commit dca68754a6325f74b0fb126757e0aba674d5c34c in branch main
+==> Requesting Node.js version >=16.0.0
+==> Using Node.js version 24.7.0 via /opt/render/project/src/package.json
+==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+==> Running build command 'npm install'...
+added 81 packages, and audited 82 packages in 2s
+18 packages are looking for funding
+  run `npm fund` for details
+found 0 vulnerabilities
+==> Uploading build...
+==> Uploaded in 3.6s. Compression took 1.1s
+==> Build successful 🎉
+==> Deploying...
+==> Running 'npm start'
+> discordbot@1.0.0 start
+> node src/index.js
+🌐 HTTP server running on port 10000
+🔄 Deploying commands to Discord...
+✅ Bubble Butt Bottom Bot#5409 is online and ready!
+🤖 Bot is in 1 server(s)
+📊 Server: BUBBLE BUTT BOTTOM BOIS | Members: 4
+✅ Successfully deployed 8 commands!
+==> Your service is live 🎉
+==> 
+==> ///////////////////////////////////////////////////////////
+==> 
+==> Available at your primary URL https://discordbot-i8rx.onrender.com
+==> 
+==> ///////////////////////////////////////////////////////////
+(node:80) Warning: Supplying "fetchReply" for interaction response options is deprecated. Utilize "withResponse" instead or fetch the response after using the method.
+(Use `node --trace-warnings ...` to show where the warning was created)
+==> Running 'npm start'
+> discordbot@1.0.0 start
+> node src/index.js
+🌐 HTTP server running on port 10000
+🔄 Deploying commands to Discord...
+✅ Bubble Butt Bottom Bot#5409 is online and ready!
+🤖 Bot is in 1 server(s)
+📊 Server: BUBBLE BUTT BOTTOM BOIS | Members: 4
+✅ Successfully deployed 8 commands!
+DiscordAPIError[10062]: Unknown interaction
+    at handleErrors (/opt/render/project/src/node_modules/@discordjs/rest/dist/index.js:762:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async BurstHandler.runRequest (/opt/render/project/src/node_modules/@discordjs/rest/dist/index.js:866:23)
+    at async _REST.request (/opt/render/project/src/node_modules/@discordjs/rest/dist/index.js:1307:22)
+    at async ChatInputCommandInteraction.reply (/opt/render/project/src/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:200:22)
+    at async Object.execute (/opt/render/project/src/src/commands/cloud.js:82:5)
+    at async Object.execute (/opt/render/project/src/src/events/interactionCreate.js:16:7) {
+  requestBody: { files: [], json: { type: 4, data: [Object] } },
+  rawError: { message: 'Unknown interaction', code: 10062 },
+  code: 10062,
+  status: 404,
+  method: 'POST',
+  url: 'https://discord.com/api/v10/interactions/1410512724139573281/aW50ZXJhY3Rpb246MTQxMDUxMjcyNDEzOTU3MzI4MTpqeU5DNHlnUVQ5ZmhmYlFiWTVVV0tsdlpnZnppMHpjZ01pbm9ZR2FHUDdtV3dNb0t5bDVVREdwSVdQS3ozc2lzcGRaNnJBM2ljWjdBZWNkckdLTVdOS2M4ZERsaEY0aWxLYjluTGFkSnBJd3lQUWxIZGNBYUdhSkVIRjlOVkVZVw/callback?with_response=false'
+}
+(node:62) Warning: Supplying "ephemeral" for interaction response options is deprecated. Utilize flags instead.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Failed to send error response: DiscordAPIError[40060]: Interaction has already been acknowledged.
+    at handleErrors (/opt/render/project/src/node_modules/@discordjs/rest/dist/index.js:762:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async BurstHandler.runRequest (/opt/render/project/src/node_modules/@discordjs/rest/dist/index.js:866:23)
+    at async _REST.request (/opt/render/project/src/node_modules/@discordjs/rest/dist/index.js:1307:22)
+    at async ChatInputCommandInteraction.reply (/opt/render/project/src/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:200:22)
+    at async Object.execute (/opt/render/project/src/src/events/interactionCreate.js:33:11) {
+  requestBody: { files: [], json: { type: 4, data: [Object] } },
+  rawError: {
+    message: 'Interaction has already been acknowledged.',
+    code: 40060
+  },
+  code: 40060,
+  status: 400,
+  method: 'POST',
+  url: 'https://discord.com/api/v10/interactions/1410512724139573281/aW50ZXJhY3Rpb246MTQxMDUxMjcyNDEzOTU3MzI4MTpqeU5DNHlnUVQ5ZmhmYlFiWTVVV0tsdlpnZnppMHpjZ01pbm9ZR2FHUDdtV3dNb0t5bDVVREdwSVdQS3ozc2lzcGRaNnJBM2ljWjdBZWNkckdLTVdOS2M4ZERsaEY0aWxLYjluTGFkSnBJd3lQUWxIZGNBYUdhSkVIRjlOVkVZVw/callback?with_response=false'
+}
