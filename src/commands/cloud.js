@@ -60,7 +60,7 @@ module.exports = {
         },
         { 
           name: '🤖 Discord.js Version', 
-          value: `v${discordJsVersion}`, 
+          value: `${discordJsVersion}`, 
           inline: true 
         }
       )
